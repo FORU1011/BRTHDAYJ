@@ -635,8 +635,7 @@
         const countdownElement = document.getElementById('countdown');
         
         // Set countdown target to 5 hours from now
-        const now = new Date();
-        const targetTime = new Date(now.getTime() + (6 * 18 * 60 * 1000));
+        const targetTime = new Date(Date.UTC(2025,4,13,18,30,0));
         
         function update() {
           const currentTime = new Date();
