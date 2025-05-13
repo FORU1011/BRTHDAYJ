@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Jayakshi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #ff85a1;
+      --secondary-color: #ffc8dd;
+      --accent-color: #a2d2ff;
+      --text-color: #2b2d42;
+      --highlight-color: #ff477e;
+      --bg-color: #fff5f7;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .container {
+      max-width: 800px;
+      width: 90%;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,244,249,0.95) 100%);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(255, 133, 161, 0.2);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeIn 1.5s ease forwards;
+    }
+    
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .envelope-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--primary-color);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: clip-path 1.5s ease;
+    }
+    
+    .envelope-top.open {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    
+    .envelope-top.slide-up {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      transition: clip-path 1s ease;
+    }
+    
+    .envelope-message {
+      font-family: 'Dancing Script', cursive;
+      color: white;
+      font-size: 3rem;
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.5s ease;
+    }
+    
+    .envelope-top.open .envelope-message {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .envelope-icon {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease 1.5s forwards;
+    }
+    
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: var(--highlight-color);
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeIn 1s ease 1.8s forwards;
+    }
+    
+    .subtitle {
+      font-style: italic;
+      color: var(--text-color);
+      font-size: 1rem;
+      opacity: 0;
+      animation: fadeIn 1s ease 2s forwards;
+    }
+    
+    .letter {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-top: 2rem;
+      position: relative;
+      opacity: 0;
+      animation: fadeIn 1s ease 2.2s forwards;
+    }
+    
+    .to-from {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--primary-color);
+    }
+    
+    .greeting {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--highlight-color);
+    }
+    
+    .letter-content p {
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .highlight {
+      color: var(--highlight-color);
+      font-weight: 600;
+    }
+    
+    .emphasis {
+      font-style: italic;
+    }
+    
+    .letter-content p:nth-child(1) { animation: paragraphFadeIn 0.8s ease 2.6s forwards; }
+    .letter-content p:nth-child(2) { animation: paragraphFadeIn 0.8s ease 3.0s forwards; }
+    .letter-content p:nth-child(3) { animation: paragraphFadeIn 0.8s ease 3.4s forwards; }
+    .letter-content p:nth-child(4) { animation: paragraphFadeIn 0.8s ease 3.8s forwards; }
+    .letter-content p:nth-child(5) { animation: paragraphFadeIn 0.8s ease 4.2s forwards; }
+    .letter-content p:nth-child(6) { animation: paragraphFadeIn 0.8s ease 4.6s forwards; }
+    .letter-content p:nth-child(7) { animation: paragraphFadeIn 0.8s ease 5.0s forwards; }
+    .letter-content p:nth-child(8) { animation: paragraphFadeIn 0.8s ease 5.4s forwards; }
+    .letter-content p:nth-child(9) { animation: paragraphFadeIn 0.8s ease 5.8s forwards; }
+    
+    @keyframes paragraphFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      text-align: right;
+      color: var(--highlight-color);
+      opacity: 0;
+      animation: fadeIn 1s ease 6.2s forwards;
+    }
+    
+    .letter-footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--primary-color);
+      opacity: 0;
+      animation: fadeIn 1s ease 6.5s forwards;
+    }
+    
+    .countdown {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--highlight-color);
+      font-weight: 600;
+      opacity: 0;
+      animation: fadeIn 1s ease 2.4s forwards;
+    }
+    
+    .particles-container {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .particle {
+      position: absolute;
+      background-color: var(--secondary-color);
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    
+    .hearts-container {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--primary-color);
+      transform: rotate(45deg);
+      opacity: 0;
+      animation: heartFloat 15s ease-in forwards;
+    }
+    
+    .heart:before,
+    .heart:after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      position: absolute;
+    }
+    
+    .heart:before {
+      top: -10px;
+      left: 0;
+    }
+    
+    .heart:after {
+      top: 0;
+      left: -10px;
+    }
+    
+    @keyframes heartFloat {
+      0% {
+        opacity: 0;
+        transform: translateY(0) rotate(45deg) scale(0.3);
+      }
+      10% {
+        opacity: 0.8;
+      }
+      90% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-1000px) rotate(45deg) scale(0.3);
+      }
+    }
+    
+    .audio-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      opacity: 0;
+      animation: fadeIn 1s ease 7s forwards;
+    }
+    
+    .audio-icon {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        width: 95%;
+        padding: 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .envelope-message {
+        font-size: 2rem;
+        padding: 1rem;
+      }
+      
+      .letter {
+        padding: 1.5rem;
+      }
+    }
+    
+    /* Birthday elements */
+    .birthday-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+    }
+    
+    .birthday-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    .birthday-message {
+      text-align: center;
+      color: white;
+      padding: 2rem;
+    }
+    
+    .birthday-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .birthday-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .birthday-btn {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .birthday-btn:hover {
+      background-color: var(--highlight-color);
+      transform: translateY(-3px);
+    }
+    
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #f00;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="envelope-top">
+    <div class="envelope-message">
+      Click to open Jayakshi's birthday surprise...
+    </div>
+  </div>
+  
+  <div class="particles-container"></div>
+  <div class="hearts-container"></div>
+  
+  <div class="container">
+    <div class="header">
+      <div class="envelope-icon">💌</div>
+      <h1>Happy Birthday, Jayakshi!</h1>
+      <div class="subtitle">A letter from someone who adores you more than you know...</div>
+    </div>
+    
+    <div class="countdown" id="countdown"></div>
+    
+    <div class="letter">
+      <div class="to-from">
+        <div class="to">🎀 To: Jayakshi 🌸</div>
+        <div class="from">💌 From: Someone who adores you more than you know…</div>
+      </div>
+      
+      <div class="greeting">Hey babyy,</div>
+      
+      <div class="letter-content">
+        <p>Only a few hours to your special day, and I couldn't wait to tell you this…</p>
+        
+        <p>You are <span class="emphasis">so much more</span> than just a friend or a person in my life — <span class="highlight">you're my favorite</span>, my peace, my soft place in a world that's often too loud. 🌍❤️</p>
+        
+        <p>I don't know what magic happened since March… but ever since we started talking more, you've made everything feel lighter. Happier. Real.</p>
+        
+        <p>There's one memory that I can't get out of my head...</p>
+        
+        <p>That one night — late, quiet, and peaceful — when we were on the phone, and your voice was getting sleepy... 💤</p>
+        
+        <p>You were talking in that soft, <span class="highlight">chhoti si baachi wali awaaz</span> 🐣 Your cute little baatein, the way your words slowed down… I swear, in that moment I felt something shift. I just wanted to hold you close and protect that softness forever. 🫂🌙</p>
+        
+        <p>You didn't even realize how <span class="emphasis">adorably precious</span> you sounded... but I did. And I always will.</p>
+        
+        <p>I want to be that person for you — Someone you <span class="emphasis">never have to be afraid of</span>, Someone who'll never break your heart, Someone you can talk to at 2 AM, sleepy-eyed and safe. 🕯️💤</p>
+        
+        <p>I don't need anything <span class="emphasis">from</span> you — just your happiness, your smile, and maybe… the chance to stay close. Always. 🤞🏻💖</p>
+        
+        <p>You are special to me in ways words can never fully describe… But I promise to spend every day trying.</p>
+      </div>
+      
+      <div class="signature">Happy Birthday, Jayakshi. 🎂🌷</div>
+      
+      <div class="letter-footer">Here's to soft moments, real love, and endless smiles. Forever rooting for you — always, always. 💝</div>
+    </div>
+  </div>
+  
+  <div class="audio-controls" id="audioControl">
+    <div class="audio-icon">🎵</div>
+  </div>
+  
+  <div class="birthday-overlay" id="birthdayOverlay">
+    <div class="birthday-message">
+      <div class="birthday-title">Happy Birthday Jayakshi!</div>
+      <div class="birthday-subtitle">You are amazing, special, and so deeply loved. ✨</div>
+      <button class="birthday-btn" id="continueBtn">Continue to Your Letter</button>
+    </div>
+  </div>
+  
+  <audio id="bgMusic" loop>
+    <source src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.5/umd/popper.min.js" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Audio setup - using a soft background music
+      const backgroundMusic = document.getElementById('bgMusic');
+      backgroundMusic.volume = 0.3;
+      
+      // Open envelope when clicked
+      const envelopeTop = document.querySelector('.envelope-top');
+      envelopeTop.addEventListener('click', () => {
+        envelopeTop.classList.add('open');
+        
+        // After envelope is opened and animation plays, slide it up
+        setTimeout(() => {
+          envelopeTop.classList.add('slide-up');
+          playBackgroundMusic();
+        }, 2000);
+      });
+      
+      // Audio control
+      const audioControl = document.getElementById('audioControl');
+      let isMusicPlaying = false;
+      
+      audioControl.addEventListener('click', toggleMusic);
+      
+      function toggleMusic() {
+        if (isMusicPlaying) {
+          backgroundMusic.pause();
+          audioControl.querySelector('.audio-icon').textContent = '🔇';
+        } else {
+          backgroundMusic.play();
+          audioControl.querySelector('.audio-icon').textContent = '🎵';
+        }
+        isMusicPlaying = !isMusicPlaying;
+      }
+      
+      function playBackgroundMusic() {
+        // Create an audio context
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const audioContext = new AudioContext();
+        
+        // Create an oscillator for a simple soft melody
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(329.63, audioContext.currentTime); // E4
+        
+        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.start();
+        
+        // Simple melody sequence
+        setTimeout(() => {
+          oscillator.frequency.setValueAtTime(349.23, audioContext.currentTime); // F4
+        }, 2000);
+        
+        setTimeout(() => {
+          oscillator.frequency.setValueAtTime(392.00, audioContext.currentTime); // G4
+        }, 4000);
+        
+        setTimeout(() => {
+          oscillator.frequency.setValueAtTime(440.00, audioContext.currentTime); // A4
+        }, 6000);
+        
+        setTimeout(() => {
+          oscillator.frequency.setValueAtTime(493.88, audioContext.currentTime); // B4
+        }, 8000);
+        
+        // End the intro melody
+        setTimeout(() => {
+          oscillator.stop();
+          // After intro melody, set the music playing state to true
+          isMusicPlaying = true;
+        }, 10000);
+      }
+      
+      // Create particles
+      function createParticles() {
+        const particlesContainer = document.querySelector('.particles-container');
+        const particleCount = 50;
+        
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          
+          // Random properties
+          const size = Math.random() * 5 + 2;
+          const posX = Math.random() * window.innerWidth;
+          const posY = Math.random() * window.innerHeight;
+          const delay = Math.random() * 10;
+          const duration = Math.random() * 20 + 10;
+          const color = getRandomColor();
+          
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${posX}px`;
+          particle.style.top = `${posY}px`;
+          particle.style.backgroundColor = color;
+          particle.style.animation = `heartFloat ${duration}s ease-in ${delay}s infinite`;
+          
+          particlesContainer.appendChild(particle);
+        }
+      }
+      
+      // Create floating hearts
+      function createHearts() {
+        const heartsContainer = document.querySelector('.hearts-container');
+        const heartCount = 20;
+        
+        for (let i = 0; i < heartCount; i++) {
+          const heart = document.createElement('div');
+          heart.classList.add('heart');
+          
+          // Random properties
+          const size = Math.random() * 15 + 10;
+          const posX = Math.random() * window.innerWidth;
+          const startY = window.innerHeight + Math.random() * 500;
+          const delay = Math.random() * 30;
+          const duration = Math.random() * 10 + 15;
+          const opacity = Math.random() * 0.5 + 0.3;
+          
+          heart.style.width = `${size}px`;
+          heart.style.height = `${size}px`;
+          heart.style.left = `${posX}px`;
+          heart.style.bottom = `-${startY}px`;
+          heart.style.opacity = opacity;
+          
+          // Create pseudo-elements of the same size
+          heart.style.setProperty('--heart-size', `${size}px`);
+          
+          // Set animation with delay
+          heart.style.animationDuration = `${duration}s`;
+          heart.style.animationDelay = `${delay}s`;
+          
+          heartsContainer.appendChild(heart);
+        }
+      }
+      
+      // Update countdown
+      function updateCountdown() {
+        const countdownElement = document.getElementById('countdown');
+        
+        // Set countdown target to 5 hours from now
+        const now = new Date();
+        const targetTime = new Date(now.getTime() + (6 * 18 * 60 * 1000));
+        
+        function update() {
+          const currentTime = new Date();
+          const diff = targetTime - currentTime;
+          
+          if (diff <= 0) {
+            countdownElement.innerHTML = "It's your birthday! 🎉";
+            showBirthdayCelebration();
+            return;
+          }
+          
+          const hours = Math.floor(diff / (1000 * 60 * 60));
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+          
+          countdownElement.innerHTML = `${hours}h ${minutes}m ${seconds}s until your special day! 🎂`;
+          
+          setTimeout(update, 1000);
+        }
+        
+        update();
+      }
+      
+      // Birthday celebration
+      function showBirthdayCelebration() {
+        const birthdayOverlay = document.getElementById('birthdayOverlay');
+        birthdayOverlay.classList.add('show');
+        
+        // Create confetti
+        createConfetti();
+        
+        const continueBtn = document.getElementById('continueBtn');
+        continueBtn.addEventListener('click', () => {
+          birthdayOverlay.classList.remove('show');
+        });
+      }
+      
+      // Create confetti for birthday celebration
+      function createConfetti() {
+        const colors = ['#ff85a1', '#ffc8dd', '#a2d2ff', '#ffafcc', '#bde0fe', '#ff477e'];
+        
+        for (let i = 0; i < 100; i++) {
+          const confetti = document.createElement('div');
+          confetti.classList.add('confetti');
+          
+          const size = Math.random() * 10 + 5;
+          const posX = Math.random() * window.innerWidth;
+          const posY = -Math.random() * 100;
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          const rotation = Math.random() * 360;
+          const duration = Math.random() * 3 + 2;
+          const delay = Math.random() * 5;
+          
+          confetti.style.width = `${size}px`;
+          confetti.style.height = `${size}px`;
+          confetti.style.left = `${posX}px`;
+          confetti.style.top = `${posY}px`;
+          confetti.style.backgroundColor = color;
+          confetti.style.transform = `rotate(${rotation}deg)`;
+          confetti.style.opacity = '1';
+          confetti.style.position = 'absolute';
+          confetti.style.zIndex = '201';
+          
+          document.body.appendChild(confetti);
+          
+          // Animate falling
+          setTimeout(() => {
+            confetti.style.transition = `all ${duration}s ease`;
+            confetti.style.top = `${window.innerHeight + 100}px`;
+            confetti.style.transform = `rotate(${rotation + 720}deg)`;
+            
+            setTimeout(() => {
+              confetti.remove();
+            }, duration * 1000);
+          }, delay * 1000);
+        }
+      }
+      
+      // Helper function to get random color
+      function getRandomColor() {
+        const colors = [
+          'rgba(255, 133, 161, 0.6)', // Primary
+          'rgba(255, 200, 221, 0.6)', // Secondary
+          'rgba(162, 210, 255, 0.6)', // Accent
+          'rgba(255, 175, 204, 0.6)', // Light primary
+          'rgba(189, 224, 254, 0.6)', // Light accent
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
+      
+      // Initialize everything
+      createParticles();
+      createHearts();
+      updateCountdown();
+    });
+  </script>
+</body>
+</html>
